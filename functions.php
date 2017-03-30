@@ -6,6 +6,9 @@ function insert(){
   $typ = $_POST['type'];
   $hp = $_POST['hp'];
   $type = strtoupper($typ);
+
+  $name = mysqli_real_escape_string($connection, $name);
+
   $query = "INSERT INTO pokemons(name,type,hp) VALUES ('$name', '$type', '$hp')";
   $resultado = mysqli_query($connection, $query);
   if (!$resultado) {
